@@ -1,12 +1,13 @@
-import institutionModel from '../models/InstitutionModel';
+import Cupoms from '../models/CupomsModel';
 
 const get = async (req, res) => {
-    
   try {
-    const id = req.params.id ? req.params.id.toString().replace(/\D/g, '') : null;
+    const id = req.params.id
+      ? req.params.id.toString().replace(/\D/g, '')
+      : null;
 
     if (!id) {
-      const response = await institutionModel.findAll({
+      const response = await Cupoms.findAll({
         order: [['id', 'asc']],
       });
       return res.status(200).send({
@@ -16,7 +17,7 @@ const get = async (req, res) => {
       });
     }
 
-    const response = await institutionModel.findOne({ where: { id } });
+    const response = await Cupoms.findOne({ where: { id } });
 
     if (!response) {
       return res.status(200).send({
@@ -41,9 +42,19 @@ const get = async (req, res) => {
 };
 
 const create = async (dados, res) => {
-  const { name,document_number, address_id } = dados;
+  const {
+    code,
+    type,
+    value,
+    uses,
+  } = dados;
 
-  const response = await institutionModel.create({name,document_number, address_id});
+  const response = await Cupoms.create({
+    code,
+    type,
+    value,
+    uses,
+  });
 
   return res.status(200).send({
     type: 'success',
@@ -53,7 +64,7 @@ const create = async (dados, res) => {
 };
 
 const update = async (id, dados, res) => {
-  const response = await institutionModel.findOne({ where: { id } });
+  const response = await Cupoms.findOne({ where: { id } });
 
   if (!response) {
     return res.status(200).send({
@@ -62,9 +73,7 @@ const update = async (id, dados, res) => {
       data: [],
     });
   }
-
-  Object.keys(dados).forEach((field) => response[field] = dados[field]);
-
+  Object.keys(dados).forEach((field) => (response[field] = dados[field]));
   await response.save();
   return res.status(200).send({
     type: 'success',
@@ -75,7 +84,9 @@ const update = async (id, dados, res) => {
 
 const persist = async (req, res) => {
   try {
-    const id = req.params.id ? req.params.id.toString().replace(/\D/g, '') : null;
+    const id = req.params.id
+      ? req.params.id.toString().replace(/\D/g, '')
+      : null;
 
     if (!id) {
       return await create(req.body, res);
@@ -102,7 +113,7 @@ const destroy = async (req, res) => {
       });
     }
 
-    const response = await institutionModel.findOne({ where: { id } });
+    const response = await Cupoms.findOne({ where: { id } });
 
     if (!response) {
       return res.status(200).send({
@@ -131,4 +142,5 @@ export default {
   get,
   persist,
   destroy,
+  update,
 };
