@@ -27,7 +27,7 @@ const User = sequelize.define(
       type: DataTypes.STRING(16),
       allowNull: false,
     },
-    passwordHash: {
+    passwordhash: {
       field: 'password_hash',
       type: DataTypes.STRING(255),
       allowNull: false,

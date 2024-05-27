@@ -1,4 +1,4 @@
-import Products from '../models/productsModel';
+import Books from '../models/booksModel';
 
 const get = async (req, res) => {
   try {
@@ -7,7 +7,7 @@ const get = async (req, res) => {
       : null;
 
     if (!id) {
-      const response = await Products.findAll({
+      const response = await Books.findAll({
         order: [['id', 'asc']],
       });
       return res.status(200).send({
@@ -17,7 +17,7 @@ const get = async (req, res) => {
       });
     }
 
-    const response = await Products.findOne({ where: { id } });
+    const response = await Books.findOne({ where: { id } });
 
     if (!response) {
       return res.status(200).send({
@@ -50,7 +50,7 @@ const create = async (dados, res) => {
     idCategory,
   } = dados;
 
-  const response = await Products.create({
+  const response = await Books.create({
     name,
     price,
     image,
@@ -66,7 +66,7 @@ const create = async (dados, res) => {
 };
 
 const update = async (id, dados, res) => {
-  const response = await Products.findOne({ where: { id } });
+  const response = await Books.findOne({ where: { id } });
 
   if (!response) {
     return res.status(200).send({
@@ -115,7 +115,7 @@ const destroy = async (req, res) => {
       });
     }
 
-    const response = await Products.findOne({ where: { id } });
+    const response = await Books.findOne({ where: { id } });
 
     if (!response) {
       return res.status(200).send({
