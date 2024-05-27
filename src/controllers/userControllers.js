@@ -48,7 +48,7 @@ const create = async (dados, res) => {
     username,
     name, 
     phone, 
-    passwordHash, 
+    password_Hash, 
     role, 
     cpf, 
     email 
