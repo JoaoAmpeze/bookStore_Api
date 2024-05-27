@@ -1,9 +1,9 @@
-import addressController from '../controllers/addressaddressController';
+import addressesControllers from '../controllers/addressesControllers';
 
 export default (app) => {
-  app.post('/address/persist', addressController.persist);
-  app.post('/address/persist/:id', addressController.persist);
-  app.post('/address/destroy', addressController.destroy);
-  app.get('/address', addressController.get);
-  app.get('/address/:id', addressController.get);
+  app.post('/address/persist', addressesControllers.persist);
+  app.post('/address/persist/:id', addressesControllers.persist);
+  app.post('/address/destroy', addressesControllers.destroy);
+  app.get('/address', addressesControllers.get);
+  app.get('/address/:id', addressesControllers.get);
 };

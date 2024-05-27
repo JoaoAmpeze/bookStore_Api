@@ -1,4 +1,4 @@
-import Adresses from '../models/AdressesModel';
+import Addresses from '../models/addressesModel';
 
 const get = async (req, res) => {
   try {
@@ -7,7 +7,7 @@ const get = async (req, res) => {
       : null;
 
     if (!id) {
-      const response = await Adresses.findAll({
+      const response = await Addresses.findAll({
         order: [['id', 'asc']],
       });
       return res.status(200).send({
@@ -17,7 +17,7 @@ const get = async (req, res) => {
       });
     }
 
-    const response = await Adresses.findOne({ where: { id } });
+    const response = await Addresses.findOne({ where: { id } });
 
     if (!response) {
       return res.status(200).send({
@@ -46,7 +46,7 @@ const create = async (dados, res) => {
     zipCode, state, city, street, district, numberForget, idUser,
   } = dados;
 
-  const response = await Adresses.create({
+  const response = await Addresses.create({
     zipCode,
     state,
     city,
@@ -64,7 +64,7 @@ const create = async (dados, res) => {
 };
 
 const update = async (id, dados, res) => {
-  const response = await Adresses.findOne({ where: { id } });
+  const response = await Addresses.findOne({ where: { id } });
 
   if (!response) {
     return res.status(200).send({
@@ -113,7 +113,7 @@ const destroy = async (req, res) => {
       });
     }
 
-    const response = await Adresses.findOne({ where: { id } });
+    const response = await Addresses.findOne({ where: { id } });
 
     if (!response) {
       return res.status(200).send({

@@ -1,10 +1,10 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../config/config';
-import Orders from './OrdersModel';
+import Orders from './ordersModel';
 import Books from './booksModel';
 
-const OrdersProducts = sequelize.define(
-  'orders_products',
+const Odersbooks = sequelize.define(
+  'orders_books',
   {
     id: {
       type: DataTypes.INTEGER,
@@ -42,7 +42,7 @@ const OrdersProducts = sequelize.define(
   },
 );
 
-OrdersProducts.belongsTo(Orders, {
+Odersbooks.belongsTo(Orders, {
   as: 'order',
   onDelete: 'no action',
   onUpdate: 'no action',
@@ -52,7 +52,7 @@ OrdersProducts.belongsTo(Orders, {
   },
 });
 
-OrdersProducts.belongsTo(Books, {
+Odersbooks.belongsTo(Books, {
   as: 'books',
   onDelete: 'no action',
   onUpdate: 'no action',
@@ -62,4 +62,4 @@ OrdersProducts.belongsTo(Books, {
   },
 });
 
-export default OrdersProducts;
+export default Odersbooks;

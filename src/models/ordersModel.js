@@ -1,9 +1,9 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../config/config';
-import Adresses from './AdressesModel';
-import Payments from './PaymentsModel';
-import Users from './UsersModel';
-import Cupoms from './CupomsModel';
+import Adresses from './addressesModel';
+import Payments from './paymentsModel';
+import Users from './userModel';
+import Cupoms from './cupomModel';
 
 const Orders = sequelize.define(
   'orders',
@@ -73,7 +73,7 @@ Orders.belongsTo(Users, {
 });
 
 Orders.belongsTo(Users, {
-  as: 'user',
+  as: 'users',
   onDelete: 'no action',
   onUpdate: 'no action',
   foreignKey: {

@@ -2,6 +2,7 @@ import Author from '../models/authorModel';
 
 const get = async (req, res) => {
   try {
+    console.log("puts");
     const id = req.params.id
       ? req.params.id.toString().replace(/\D/g, '')
       : null;

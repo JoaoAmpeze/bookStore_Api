@@ -1,4 +1,4 @@
-import Cupoms from '../models/CupomsModel';
+import Cupoms from '../models/cupomModel';
 
 const get = async (req, res) => {
   try {
