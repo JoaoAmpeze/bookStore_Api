@@ -21,8 +21,9 @@
     ```    
 
   *Banco
-  * ```
-  create table users
+  *
+  
+create table users
 (
     id            serial,
     username      varchar(50)                                        not null,
@@ -205,6 +206,3 @@ INSERT INTO author (name, image, biography, created_at, updated_at,id_book) VALU
 ('J.R.R. Tolkien', 'jrr_tolkien.jpg', 'John Ronald Reuel Tolkien was an English writer, poet, philologist, and academic.', now(), now(),5),
 ('George Orwell', 'george_orwell.jpg', 'Eric Arthur Blair, better known by his pen name George Orwell, was an English novelist and essayist.', now(), now(),6),
 ('Ernest Hemingway', 'ernest_hemingway.jpg', 'Ernest Miller Hemingway was an American novelist, short-story writer, journalist, and sportsman.', now(), now(),7);
-
-  
-    ```
