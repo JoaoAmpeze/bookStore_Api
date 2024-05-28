@@ -14,7 +14,7 @@ const Author = sequelize.define(
       type: DataTypes.STRING(255),
       allowNull: false,
     },
-    Image: {
+    image: {
       type: DataTypes.STRING(2000),
       allowNull: false,
     },
