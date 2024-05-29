@@ -39,7 +39,7 @@ const Orders = sequelize.define(
       allowNull: false,
     },
     idAdress: {
-      field: 'id_adress',
+      field: 'id_address',
       type: DataTypes.INTEGER,
       allowNull: false,
     },

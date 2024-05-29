@@ -1,6 +1,7 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../config/config';
 import Categories from './categoriesModel';
+import Author from './authorModel';
 
 const Books = sequelize.define(
   'books',
@@ -46,6 +47,16 @@ Books.belongsTo(Categories, {
   foreignKey: {
     field: 'id_category',
     name: 'idCategory',
+  },
+});
+
+Books.belongsTo(Author , {
+  as: 'author',
+  onDelete: 'no action',
+  onUpdate: 'no action',
+  foreignKey: {
+    field: 'id_author',
+    name: 'idAuthor',
   },
 });
 

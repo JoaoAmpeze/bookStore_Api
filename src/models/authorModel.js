@@ -1,6 +1,5 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../config/config';
-import Books from './booksModel';
 
 const Author = sequelize.define(
   'author',
@@ -33,15 +32,6 @@ const Author = sequelize.define(
   },
 );
 
-Author.belongsTo(Books , {
-  as: 'books',
-  onDelete: 'no action',
-  onUpdate: 'no action',
-  foreignKey: {
-    field: 'id_book',
-    name: 'idBook',
-  },
-});
 
 
 export default Author;
