@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize';
 import { sequelize } from '../config/config';
 
 const Payments = sequelize.define(
-  'users',
+  'payments',
   {
     id: {
       type: DataTypes.INTEGER,
